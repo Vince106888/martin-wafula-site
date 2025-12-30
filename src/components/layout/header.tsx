@@ -4,54 +4,42 @@ import { Container } from "./container";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50">
-      {/* Header backdrop */}
-      <div className="bg-background/70 backdrop-blur-xl">
-        <Container>
-          {/* Glass wrapper */}
-          <div className="my-4 rounded-2xl border border-border/60 bg-background/80 shadow-sm">
-            <div className="flex h-20 items-center justify-between px-8">
-              {/* Brand */}
-              <Link
-                href="/"
-                className="font-heading text-xl tracking-tight hover:opacity-80 transition"
-              >
-                Dr. Martin Wafula
-              </Link>
+    <header className="sticky top-0 z-50 bg-background/70 backdrop-blur-md h-28">
+      <Container>
+        <div className="surface flex items-center justify-between h-full px-6 py-6 rounded-2xl shadow-lg">
+          {/* Brand */}
+          <Link
+            href="/"
+            className="header-brand text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+          >
+            Dr. Martin Wafula
+          </Link>
 
-              {/* Navigation */}
-              <nav className="flex items-center gap-10 text-sm text-muted-foreground">
-                <Link
-                  href="/#publications"
-                  className="hover:text-foreground transition"
-                >
-                  Publications
-                </Link>
-                <Link
-                  href="/#teaching"
-                  className="hover:text-foreground transition"
-                >
-                  Teaching
-                </Link>
-                <Link
-                  href="/research"
-                  className="hover:text-foreground transition"
-                >
-                  Research
-                </Link>
-                <Link
-                  href="/cv"
-                  className="hover:text-foreground transition"
-                >
-                  CV
-                </Link>
+          {/* Navigation */}
+          <nav
+            aria-label="Primary"
+            className="flex items-center gap-6 text-sm sm:gap-8 whitespace-nowrap"
+          >
+            <Link href="/#publications" className="nav-pill focus-ring px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">
+              Publications
+            </Link>
+            <Link href="/#teaching" className="nav-pill focus-ring px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">
+              Teaching
+            </Link>
+            <Link href="/research" className="nav-pill focus-ring px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">
+              Research
+            </Link>
+            <Link href="/cv" className="nav-pill focus-ring px-3 py-2 rounded-md hidden sm:inline-flex hover:bg-gray-100 dark:hover:bg-gray-700">
+              CV
+            </Link>
 
-                <ThemeToggle />
-              </nav>
+            {/* Theme toggle isolated */}
+            <div className="ml-4 flex items-center">
+              <ThemeToggle />
             </div>
-          </div>
-        </Container>
-      </div>
+          </nav>
+        </div>
+      </Container>
     </header>
   );
 }
